@@ -18,8 +18,10 @@ import java.util.stream.Collectors;
  */
 public class FileUtils {
 
+    private static final String PROJECT_DIR = System.getProperty("user.dir");
+
     public static List<File> getLogFiles() {
-        File file = new File("/Users/isko/Desktop/Projects/smartbics/smartbics-test-task/src/main/resources/logs");
+        File file = new File(PROJECT_DIR + "/src/main/resources/logs");
         if (file.isDirectory()) {
             return Arrays.asList(file.listFiles());
         } else {
@@ -29,7 +31,7 @@ public class FileUtils {
 
     @SneakyThrows
     public static File getStatisticFile() {
-        File file = new File("/Users/isko/Desktop/Projects/smartbics/smartbics-test-task/src/main/resources/statistics/statistic.txt");
+        File file = new File(PROJECT_DIR + "/src/main/resources/statistics/statistic.txt");
         if (!file.exists()) {
             file.createNewFile();
         }
